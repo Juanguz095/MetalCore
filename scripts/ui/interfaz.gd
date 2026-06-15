@@ -22,7 +22,7 @@ var ubicaciones = {
 		"acciones": ["IR AL BAR EL LIMBO", "MERCADO NEGRO", "DESCANSAR (DÍA SIGUIENTE)"],
 		"dialogo": {
 			"nombre": "...",
-			"texto": "Son las 6 AM. Tu apartamento huele a cigarrillos viejos.\nTienes que moverte. El dinero no va a caer del cielo.",
+			"texto": "El dinero no cae del cielo",
 			"opciones": []
 		}
 	},
