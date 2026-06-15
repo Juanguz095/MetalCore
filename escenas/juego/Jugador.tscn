@@ -1,0 +1,114 @@
+[gd_scene load_steps=18 format=3 uid="uid://cduqc1fs07v4y"]
+
+[ext_resource type="Script" uid="uid://d2a4wfpp0a1f3" path="res://scripts/juego/jugador.gd" id="1_8dsye"]
+[ext_resource type="Texture2D" uid="uid://5k7scw5jgfck" path="res://assets/player/run1.png" id="1_v0x6l"]
+[ext_resource type="Texture2D" uid="uid://cjauyjuub75i3" path="res://assets/player/run2.png" id="2_iusdk"]
+[ext_resource type="Texture2D" uid="uid://cq6icju4iuy84" path="res://assets/player/run3.png" id="3_sgxok"]
+[ext_resource type="Texture2D" uid="uid://cffonwikun8h8" path="res://assets/player/run4.png" id="4_7wi6q"]
+[ext_resource type="Texture2D" uid="uid://cawew0j6dcxnf" path="res://assets/player/idle.png" id="5_1txe6"]
+[ext_resource type="Texture2D" uid="uid://cu4b5k2td5t8x" path="res://assets/player/player-shoot1.png" id="5_gffml"]
+[ext_resource type="Texture2D" uid="uid://8uf7ibc00j4q" path="res://assets/player/player-shoot2.png" id="6_8dsye"]
+[ext_resource type="Texture2D" uid="uid://c8550ia7ayc27" path="res://assets/player/jump.png" id="6_gffml"]
+[ext_resource type="Texture2D" uid="uid://q6j4lv2aqoqc" path="res://assets/player/player-shoot3.png" id="7_bp083"]
+[ext_resource type="Texture2D" uid="uid://csjqkrf4cy7kv" path="res://assets/player/player-shoot4.png" id="8_j5xgm"]
+[ext_resource type="Texture2D" uid="uid://b8j68355np0p4" path="res://assets/player/shoot.png" id="9_y3stu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bawt"]
+atlas = ExtResource("5_1txe6")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsbl5"]
+atlas = ExtResource("6_gffml")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8mpi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v0x6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iusdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sgxok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7wi6q")
+}],
+"loop": true,
+"name": &"Correr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gffml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8dsye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bp083")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j5xgm")
+}],
+"loop": true,
+"name": &"CorrerDisparando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_y3stu")
+}],
+"loop": true,
+"name": &"Disparar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bawt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsbl5")
+}],
+"loop": true,
+"name": &"Saltar",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gffml"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="GDScript" id="GDScript_8dsye"]
+
+[node name="Jugador" type="CharacterBody2D" groups=["jugador"]]
+script = ExtResource("1_8dsye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p8mpi")
+animation = &"Correr"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_gffml")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 240
+script = SubResource("GDScript_8dsye")
+
+[node name="TimerDisparo" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerDisparo" to="." method="_on_timer_disparo_timeout"]

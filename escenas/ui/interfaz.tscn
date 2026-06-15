@@ -1,0 +1,314 @@
+[gd_scene load_steps=17 format=3 uid="uid://csuggk0p1wi0g"]
+
+[ext_resource type="Texture2D" uid="uid://clo3dqnsbyhd4" path="res://assets/fondos/bar.png" id="1_qcxk7"]
+[ext_resource type="Script" uid="uid://cut5ilj0fjoxb" path="res://scripts/ui/interfaz.gd" id="1_to630"]
+[ext_resource type="Script" uid="uid://mcd48p6hting" path="res://scripts/ui/PersonajeGif.gd" id="3_aa5h3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8iji"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dydkv"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to630"]
+bg_color = Color(0.0269775, 0.0269775, 0.0486522, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_to630"]
+line_spacing = 0.0
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa5h3"]
+font_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aa5h3"]
+bg_color = Color(0.027451, 0.027451, 0.0470588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8iji"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oafw"]
+font_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcxk7"]
+bg_color = Color(0.101961, 0.101961, 0.164706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov62p"]
+bg_color = Color(0.85098, 0.27451, 0.658824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfhj5"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_3pws4"]
+font_size = 6
+font_color = Color(1, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ov62p"]
+font_size = 8
+
+[node name="Interfaz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_to630")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8iji")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.29
+theme_override_constants/separation = 2
+
+[node name="Escena" type="Panel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+theme_override_styles/panel = SubResource("StyleBoxFlat_dydkv")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Escena"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qcxk7")
+expand_mode = 2
+
+[node name="Dialogos" type="Panel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_to630")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/Dialogos"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 81.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Dialogos/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="NombreLabel" type="Label" parent="HBoxContainer/VBoxContainer/Dialogos/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Dialogos
+"
+label_settings = SubResource("LabelSettings_to630")
+
+[node name="TextoLabel" type="Label" parent="HBoxContainer/VBoxContainer/Dialogos/ScrollContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 7.29
+text = "dasda"
+label_settings = SubResource("LabelSettings_aa5h3")
+
+[node name="OpcionesContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Dialogos/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aa5h3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/separation = -1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "DIA1"
+label_settings = SubResource("LabelSettings_n8iji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salud"
+label_settings = SubResource("LabelSettings_3oafw")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.94902, 1, 0.94902, 1)
+theme_override_colors/font_outline_color = Color(0.629003, 0, 0.737185, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_qcxk7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ov62p")
+show_percentage = false
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aa5h3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer2/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 14.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer2/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/separation = 17
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer2/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Creditos"
+label_settings = SubResource("LabelSettings_rfhj5")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer2/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "$0807"
+label_settings = SubResource("LabelSettings_3pws4")
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.95
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aa5h3")
+
+[node name="PersonajeGif" type="TextureRect" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer3/Panel"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 24.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 4
+script = ExtResource("3_aa5h3")
+
+[node name="HBoxContainer4" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.97
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aa5h3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer4/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 84.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer4/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer4/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Opciones"
+label_settings = SubResource("LabelSettings_ov62p")
+
+[node name="AccionesContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/HBoxContainer4/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2

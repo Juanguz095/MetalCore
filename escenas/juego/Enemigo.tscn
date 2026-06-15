@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://kujsd5qfcnyf"]
+
+[ext_resource type="Script" uid="uid://ghv566t4c8du" path="res://scripts/juego/enemigo.gd" id="1_kr7px"]
+[ext_resource type="Texture2D" uid="uid://bj3ha0bd00p3v" path="res://assets/enemy/enemy1.png" id="2_m65cj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ei2dk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m65cj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m65cj"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei2dk"]
+radius = 416.0769
+
+[node name="Enemigo" type="CharacterBody2D"]
+script = ExtResource("1_kr7px")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ei2dk")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m65cj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ei2dk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
