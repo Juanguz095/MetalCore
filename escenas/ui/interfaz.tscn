@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://csuggk0p1wi0g"]
+[gd_scene load_steps=18 format=3 uid="uid://csuggk0p1wi0g"]
 
 [ext_resource type="Texture2D" uid="uid://clo3dqnsbyhd4" path="res://assets/fondos/bar.png" id="1_qcxk7"]
 [ext_resource type="Script" uid="uid://cut5ilj0fjoxb" path="res://scripts/ui/interfaz.gd" id="1_to630"]
 [ext_resource type="Script" uid="uid://mcd48p6hting" path="res://scripts/ui/PersonajeGif.gd" id="3_aa5h3"]
+[ext_resource type="AudioStream" uid="uid://cfrerg8o6slte" path="res://assets/ui2.mp3" id="4_ov62p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8iji"]
 bg_color = Color(0, 0, 0, 1)
@@ -68,6 +69,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_to630")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ov62p")
+pitch_scale = 0.81
+autoplay = true
+parameters/looping = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

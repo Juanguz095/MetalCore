@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://du2b3apcm3wfo"]
+[gd_scene load_steps=8 format=4 uid="uid://du2b3apcm3wfo"]
 
 [ext_resource type="PackedScene" uid="uid://ds385h2h6yc7i" path="res://escenas/juego/TileMap.tscn" id="1_0urc6"]
 [ext_resource type="PackedScene" uid="uid://fowiwkdylo8m" path="res://escenas/juego/Fondo1.tscn" id="1_3vrse"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kujsd5qfcnyf" path="res://escenas/juego/Enemigo.tscn" id="4_i17yn"]
 [ext_resource type="Script" uid="uid://bosf75inn41ac" path="res://scripts/juego/spawner.gd" id="5_gs8is"]
 [ext_resource type="Script" uid="uid://wwkjptpjtxin" path="res://scripts/juego/vidaYPuntaje.gd" id="6_0kcls"]
+[ext_resource type="AudioStream" uid="uid://b3nxkyt3a312" path="res://assets/ui.mp3" id="7_l6tqw"]
 
 [node name="Nivel1" type="Node2D"]
 
@@ -65,3 +66,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l6tqw")
+pitch_scale = 0.64
+autoplay = true
+parameters/looping = true
